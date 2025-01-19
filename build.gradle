@@ -60,8 +60,8 @@ jooq {
                 includes = '.*'
             }
             target {
-                packageName = 'com.test.jooqtest'
-                directory = 'src/main/generated'
+                packageName = 'com.test.jooqtest.generated'
+                directory = 'src/main/java'
             }
         }
     }
