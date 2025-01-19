@@ -1,0 +1,68 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.1'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id "org.jooq.jooq-codegen-gradle" version '3.19.18'
+}
+
+group = 'com.test'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-jooq'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    jooqCodegen 'com.mysql:mysql-connector-j'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+
+
+jooq {
+    version = '3.19.18'
+
+    configuration {
+        jdbc {
+            driver = "com.mysql.cj.jdbc.Driver"
+            url = "jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC"
+            user = "root"
+            password = "password"
+        }
+        generator {
+            database {
+                name = 'org.jooq.meta.mysql.MySQLDatabase'
+                inputSchema = 'testdb'
+                includes = '.*'
+            }
+            target {
+                packageName = 'com.test.jooqtest'
+                directory = 'src/main/generated'
+            }
+        }
+    }
+}
