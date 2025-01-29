@@ -27,4 +27,9 @@ class TestTableRepositoryTest {
         List<TestTableRecord> testTables = testTableRepository.findAllData();
         assertThat(testTables).isNotEmpty();
     }
+
+    @Test
+    void testBulkInsert() {
+        
+    }
 }

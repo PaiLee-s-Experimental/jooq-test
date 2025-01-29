@@ -4,6 +4,7 @@
 package com.test.jooqtest.generated;
 
 
+import com.test.jooqtest.generated.tables.Human;
 import com.test.jooqtest.generated.tables.TestTable;
 
 import java.util.Arrays;
@@ -28,6 +29,11 @@ public class Testdb extends SchemaImpl {
     public static final Testdb TESTDB = new Testdb();
 
     /**
+     * The table <code>testdb.human</code>.
+     */
+    public final Human HUMAN = Human.HUMAN;
+
+    /**
      * The table <code>testdb.test_table</code>.
      */
     public final TestTable TEST_TABLE = TestTable.TEST_TABLE;
@@ -48,6 +54,7 @@ public class Testdb extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
+            Human.HUMAN,
             TestTable.TEST_TABLE
         );
     }

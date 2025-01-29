@@ -4,6 +4,7 @@
 package com.test.jooqtest.generated;
 
 
+import com.test.jooqtest.generated.tables.Human;
 import com.test.jooqtest.generated.tables.TestTable;
 
 
@@ -12,6 +13,11 @@ import com.test.jooqtest.generated.tables.TestTable;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes", "this-escape" })
 public class Tables {
+
+    /**
+     * The table <code>testdb.human</code>.
+     */
+    public static final Human HUMAN = Human.HUMAN;
 
     /**
      * The table <code>testdb.test_table</code>.

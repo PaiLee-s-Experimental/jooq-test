@@ -28,6 +28,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-jooq'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
     runtimeOnly 'com.mysql:mysql-connector-j'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -38,6 +39,7 @@ dependencies {
 }
 
 tasks.named('test') {
+    maxHeapSize = "2048m"
     useJUnitPlatform()
 }
 

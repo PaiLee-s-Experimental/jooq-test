@@ -4,7 +4,9 @@
 package com.test.jooqtest.generated;
 
 
+import com.test.jooqtest.generated.tables.Human;
 import com.test.jooqtest.generated.tables.TestTable;
+import com.test.jooqtest.generated.tables.records.HumanRecord;
 import com.test.jooqtest.generated.tables.records.TestTableRecord;
 
 import org.jooq.TableField;
@@ -24,5 +26,6 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
+    public static final UniqueKey<HumanRecord> KEY_HUMAN_PRIMARY = Internal.createUniqueKey(Human.HUMAN, DSL.name("KEY_human_PRIMARY"), new TableField[] { Human.HUMAN.NO }, true);
     public static final UniqueKey<TestTableRecord> KEY_TEST_TABLE_PRIMARY = Internal.createUniqueKey(TestTable.TEST_TABLE, DSL.name("KEY_test_table_PRIMARY"), new TableField[] { TestTable.TEST_TABLE.ID }, true);
 }
